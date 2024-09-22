@@ -6,8 +6,8 @@ public class FireTrap : MonoBehaviour
     [SerializeField] GameObject pilotLight;
     [SerializeField] GameObject fire;
     [SerializeField] float fireOnDelay = 0.7f;
-    [SerializeField] int fireOffMinDelay = 2;
-    [SerializeField] int fireOffMaxDelay = 4;
+    [SerializeField] int fireOffMinDelay = 1;
+    [SerializeField] int fireOffMaxDelay = 3;
 
     private bool isOff = true;
 
@@ -29,7 +29,7 @@ public class FireTrap : MonoBehaviour
 
     private void BurnerOn()
     {
-        int randDelay = Random.Range(4, 8);
+        int randDelay = Random.Range(6, 10);
 
         Invoke("LetItBurn", randDelay);
     }

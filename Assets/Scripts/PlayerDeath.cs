@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerDeath : MonoBehaviour
 {
@@ -14,6 +15,14 @@ public class PlayerDeath : MonoBehaviour
         {
             obj.SetActive(false);
         }
+
         anim.SetTrigger("Death");
+
+        Invoke(nameof(Restart), 3);
+    }
+
+    private void Restart()
+    {
+        SceneManager.LoadScene(0);
     }
 }

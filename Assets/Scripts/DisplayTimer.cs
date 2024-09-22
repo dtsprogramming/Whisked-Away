@@ -12,7 +12,7 @@ public class DisplayTimer : MonoBehaviour
 
     void Update()
     {
-        while (isAlive)
+        if (isAlive)
         {
             elapsedTime += Time.deltaTime;
             timePlaying = TimeSpan.FromSeconds(elapsedTime);
