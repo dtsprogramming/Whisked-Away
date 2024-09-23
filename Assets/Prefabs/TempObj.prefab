@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6390987144475904705}
   - component: {fileID: 1587466136350253280}
   - component: {fileID: 235923630530643549}
+  - component: {fileID: 3723237772514311967}
   m_Layer: 0
   m_Name: TempObj
   m_TagString: Untagged
@@ -177,8 +178,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 732e45b4f221d474ab8f1d50585d6795, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 0.2
+  pointValue: 10
   pushForce: 0.1
+  impactSounds:
+  - {fileID: 8300000, guid: a2ae94d055675c548873d78822ac7c64, type: 3}
+  - {fileID: 8300000, guid: e81ca79791b48ed43aec4fd4b0505d50, type: 3}
+  - {fileID: 8300000, guid: b627b906a390a094ba2b6ec1e0849f46, type: 3}
+--- !u!114 &3723237772514311967
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2117810712281547082}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c8eebb52ea89c34088e75deefd6b7e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageAmount: 5
+  hitFX: {fileID: 8300000, guid: 6e900e6d60218924380a14ec76c6e9de, type: 3}
 --- !u!1 &3556824336973070572
 GameObject:
   m_ObjectHideFlags: 0

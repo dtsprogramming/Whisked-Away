@@ -10,6 +10,10 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Transform firepoint;
     [SerializeField] private float projectileSpeed = 5f;
 
+    [Header("Weapon Audio")]
+    [SerializeField] private AudioSource mainCam;
+    [SerializeField] private AudioClip[] projectileSounds;
+
     private float flipDir = 1.2f;
 
     void Update()
@@ -44,6 +48,8 @@ public class PlayerMovement : MonoBehaviour
 
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         projectile.transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
+
+        mainCam.PlayOneShot(projectileSounds[Random.Range(0, projectileSounds.Length)], 1);
     }
 
     public void FlipPlayer()

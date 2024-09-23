@@ -1,15 +1,33 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public class FallingObject : MonoBehaviour
 {
-    [SerializeField] private float moveSpeed = 5f;
-    [SerializeField] private float pushForce = 10f;
+    [SerializeField] private int pointValue = 10;
+    [SerializeField] private float pushForce = 0.1f;
+    [SerializeField] private AudioClip[] impactSounds;
+
+    private Camera mainCam;
+    private AudioSource camAudio;
+    
+    private GameManager gameManager;
+
+    private void Start()
+    {
+        mainCam = FindFirstObjectByType<Camera>();
+        camAudio = mainCam.GetComponent<AudioSource>();
+        gameManager = FindFirstObjectByType<GameManager>();
+        Destroy(gameObject, 8);
+    }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         // Check if the collided object is the projectile
         if (other.CompareTag("Projectile"))
         {
+            gameManager.IncreaseScore(pointValue);
+            camAudio.PlayOneShot(impactSounds[Random.Range(0, impactSounds.Length)], 1);
+
             // Assuming the target has a Rigidbody2D component
             Rigidbody2D targetRigidbody = GetComponent<Rigidbody2D>();
             if (targetRigidbody != null)
